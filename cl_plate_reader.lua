@@ -287,7 +287,7 @@ function READER:Main()
 						-- If we use Sonoran CAD, reduce the plate events to just player's vehicle, otherwise life as normal
 						if ( ( CONFIG.use_sonorancad and ( UTIL:IsPlayerInVeh( veh ) or IsVehiclePreviouslyOwnedByPlayer( veh ) ) and GetVehicleClass( veh ) ~= 18 ) or not CONFIG.use_sonorancad ) then
 							-- Trigger the event so developers can hook into the scanner every time a plate is scanned
-							TriggerServerEvent( "wk:onPlateScanned", cam, plate, index )
+							TriggerServerEvent( "wk:onPlateScanned", cam, plate, index, {class = GetVehicleClass(veh), veh = veh} )
 						end
 					end
 				end
