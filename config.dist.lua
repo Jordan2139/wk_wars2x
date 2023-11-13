@@ -158,3 +158,5 @@ CONFIG.blacklist =
 
 -- Enable realistic plate scanning - When you are traveling towards a vehicle that does not have a front/back plate the plate reader will not be able to scan it
 CONFIG.realisticPlateScanning = true -- Set to false to disable realistic plate scanning
+
+CONFIG.noPlateValue = "NO PLATE" -- The value that will be displayed when a vehicle does not have a plate

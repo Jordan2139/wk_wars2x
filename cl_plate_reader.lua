@@ -265,7 +265,7 @@ function READER:Main()
 					-- Check if the plate is in the blacklist, if so, set the plate to "NO PLATE"
 					local class = tonumber(GetVehicleClass( veh ))
 					if UTIL:isInArray(CONFIG.blacklist.classes, class) and CONFIG.blacklist.enable then
-						plate = 'NO PLATE'
+						plate = CONFIG.noPlateValue
 					end
 
 					if CONFIG.realisticPlateScanning then
@@ -274,28 +274,28 @@ function READER:Main()
 						if i == 1 and dir == 2 then
 							local plateType = GetVehiclePlateType( veh )
 							if plateType ~= (0 or 1) then
-								plate = '  '
+								plate = CONFIG.noPlateValue
 							end
 						end
 						-- Looking at vehicle from the back going in the same direction as the vehicle
 						if i == 1 and dir == 1 then
 							local plateType = GetVehiclePlateType( veh )
 							if plateType ~= (0 or 2) then
-								plate = '  '
+								plate = CONFIG.noPlateValue
 							end
 						end
 						-- Looking at vehicle from the back going in the opposite direction as the vehicle
 						if i == -1 and dir == 2 then
 							local plateType = GetVehiclePlateType( veh )
 							if plateType ~= (0 or 2) then
-								plate = '  '
+								plate = CONFIG.noPlateValue
 							end
 						end
 						-- Looking at vehicle from the front going in the same direction as the vehicle
 						if i == -1 and dir == 1 then
 							local plateType = GetVehiclePlateType( veh )
 							if plateType ~= (0 or 1) then
-								plate = '  '
+								plate = CONFIG.noPlateValue
 							end
 						end
 					end
