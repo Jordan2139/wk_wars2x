@@ -265,40 +265,40 @@ function READER:Main()
 					-- Check if the plate is in the blacklist, if so, set the plate to "NO PLATE"
 					local class = tonumber(GetVehicleClass( veh ))
 					if UTIL:isInArray(CONFIG.blacklist.classes, class) and CONFIG.blacklist.enable then
-						plate = CONFIG.noPlateValue
+						plate = 'NO PLATE'
 					end
 
-					if CONFIG.realisticPlateScanning then
-						-- Check if the vehicle actually has a front plate and if not then don't set a plate
-						-- Looking at vehicle from the front going in the opposite direction as the vehicle
-						if i == 1 and dir == 2 then
-							local plateType = GetVehiclePlateType( veh )
-							if plateType ~= (0 or 1) then
-								plate = CONFIG.noPlateValue
-							end
-						end
-						-- Looking at vehicle from the back going in the same direction as the vehicle
-						if i == 1 and dir == 1 then
-							local plateType = GetVehiclePlateType( veh )
-							if plateType ~= (0 or 2) then
-								plate = CONFIG.noPlateValue
-							end
-						end
-						-- Looking at vehicle from the back going in the opposite direction as the vehicle
-						if i == -1 and dir == 2 then
-							local plateType = GetVehiclePlateType( veh )
-							if plateType ~= (0 or 2) then
-								plate = CONFIG.noPlateValue
-							end
-						end
-						-- Looking at vehicle from the front going in the same direction as the vehicle
-						if i == -1 and dir == 1 then
-							local plateType = GetVehiclePlateType( veh )
-							if plateType ~= (0 or 1) then
-								plate = CONFIG.noPlateValue
-							end
+					-- Check if the vehilce actually has a front plate and if not then don't set a plate
+					-- Looking at vehicle from the front going in the opposite direction as the vehicle
+					if i == 1 and dir == 2 then
+						local plateType = GetVehiclePlateType( veh )
+						if plateType ~= 0 and plateType ~= 1 then
+							plate = '  '
 						end
 					end
+					-- Looking at vehicle from the back going in the same direction as the vehicle
+					if i == 1 and dir == 1 then
+						local plateType = tonumber(GetVehiclePlateType( veh ))
+						if plateType ~= 0 and plateType ~= 2 then
+							plate = '  '
+						end
+					end
+
+					-- Looking at vehicle from the back going in the opposite direction as the vehicle
+					if i == -1 and dir == 2 then
+						local plateType = GetVehiclePlateType( veh )
+						if plateType ~= 0 and plateType ~= 2 then
+							plate = '  '
+						end
+					end
+					-- Looking at vehicle from the front going in the same direction as the vehicle
+					if i == -1 and dir == 1 then
+						local plateType = GetVehiclePlateType( veh )
+						if plateType ~= 0 and plateType ~= 1 then
+							plate = '  '
+						end
+					end
+
 					-- Get the licence plate index from the vehicle
 					local index = GetVehicleNumberPlateTextIndex( veh )
 
