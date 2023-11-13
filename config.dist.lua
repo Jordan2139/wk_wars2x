@@ -39,7 +39,7 @@ CONFIG = {}
 CONFIG.allow_fast_limit = true
 
 -- Radar fast limit menu order
--- When enabled, the fast limit options menu will be displayed first followed by fast lock toggle, then all default menu options. 
+-- When enabled, the fast limit options menu will be displayed first followed by fast lock toggle, then all default menu options.
 CONFIG.fast_limit_first_in_menu = false
 
 -- Radar only lock players with auto fast locking
@@ -139,4 +139,19 @@ CONFIG.uiDefaults =
 	-- The safezone size, must be a multiple of 5.
 	-- Options: 0 - 100
 	safezone = 20
+}
+
+-- Here you can set the vehicle classes that you do not want to be detected by the radar
+CONFIG.blacklist =
+{
+	enable = true, -- Set to false to disable the blacklist
+	-- Add the vehicle classes to the blacklist here | https://wiki.rage.mp/index.php?title=Vehicle_Classes
+	classes =
+	{
+		22,
+		13,
+		14,
+		15,
+		16
+	}
 }

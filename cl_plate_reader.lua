@@ -262,6 +262,12 @@ function READER:Main()
 					-- Get the licence plate text from the vehicle
 					local plate = GetVehicleNumberPlateText( veh )
 
+					-- Check if the plate is in the blacklist, if so, set the plate to "NO PLATE"
+					local class = tonumber(GetVehicleClass( veh ))
+					if UTILS:isInArray(CONFIG.blacklist.classes, class) and CONFIG.blacklist.enabled then
+						plate = 'NO PLATE'
+					end
+
 					-- Get the licence plate index from the vehicle
 					local index = GetVehicleNumberPlateTextIndex( veh )
 
