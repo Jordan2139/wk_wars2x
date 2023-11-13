@@ -264,7 +264,7 @@ function READER:Main()
 
 					-- Check if the plate is in the blacklist, if so, set the plate to "NO PLATE"
 					local class = tonumber(GetVehicleClass( veh ))
-					if UTILS:isInArray(CONFIG.blacklist.classes, class) and CONFIG.blacklist.enabled then
+					if UTIL:isInArray(CONFIG.blacklist.classes, class) and CONFIG.blacklist.enable then
 						plate = 'NO PLATE'
 					end
 

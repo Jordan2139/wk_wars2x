@@ -220,7 +220,7 @@ function UTIL:EnumerateVehicles()
 	return EnumerateEntities(FindFirstVehicle, FindNextVehicle, EndFindVehicle)
 end
 
-function UTILS:isInArray(array, value)
+function UTIL:isInArray(array, value)
 	for i = 1, #array do
 		if array[i] == value then
 			return true
