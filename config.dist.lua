@@ -148,15 +148,14 @@ CONFIG.blacklist =
 	-- Add the vehicle classes to the blacklist here | https://wiki.rage.mp/index.php?title=Vehicle_Classes
 	classes =
 	{
-		22,
-		13,
-		14,
-		15,
-		16
+		22, -- Open Wheel
+		13, -- Cycles
+		14, -- Boats
+		15, -- Helicopters
+		16 -- Planes
 	}
 }
 
 -- Enable realistic plate scanning - When you are traveling towards a vehicle that does not have a front/back plate the plate reader will not be able to scan it
-CONFIG.realisticPlateScanning = true -- Set to false to disable realistic plate scanning
-
+CONFIG.realisticPlateScanning = false -- Set to false to disable realistic plate scanning
 CONFIG.noPlateValue = "NO PLATE" -- The value that will be displayed when a vehicle does not have a plate or is a blacklisted vehicle class
